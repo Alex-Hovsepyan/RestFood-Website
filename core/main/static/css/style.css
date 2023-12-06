@@ -1,0 +1,712 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  line-height: 1.8;
+  font-family: "Halant", sans-serif;
+  font-size: 16px;
+  color: #b8b8b8;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+header .header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 15px 10px;
+}
+@media screen and (max-width: 1250px) {
+  header .header_container {
+    width: 95%;
+  }
+}
+header .header_container nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+header .header_container nav ul li {
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+header .header_container nav ul li a {
+  transition: color 0.3s ease;
+  color: #ffffff;
+}
+header .header_container nav ul li a:hover {
+  color: #ffcc33;
+}
+header .header_container span {
+  display: none;
+  cursor: pointer;
+}
+header .header_container span:hover {
+  color: #ffcc33;
+}
+
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  height: 80vh;
+}
+#home .home_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1250px) {
+  #home .home_container {
+    width: 95%;
+  }
+}
+#home .home_container .home_content {
+  width: 590px;
+  color: #ffffff;
+}
+#home .home_container .home_content h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 80px;
+  text-transform: uppercase;
+}
+#home .home_container .home_content p {
+  margin: 30px 0;
+  color: #ffffff;
+}
+#home .home_container .home_content a {
+  display: inline-block;
+  height: 43px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border-radius: 4px;
+  background-color: #ffcc33;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+#home .home_container .home_content a:hover {
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+
+.title {
+  width: 600px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.title h2 {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  background-repeat: no-repeat;
+  background-size: 80px;
+  color: #ffffff;
+}
+
+.dishes {
+  padding: 100px 0;
+  background-color: #000000;
+  color: #ffffff;
+}
+.dishes .dishes_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1250px) {
+  .dishes .dishes_container {
+    width: 95%;
+  }
+}
+.dishes .dishes_container .swiper {
+  cursor: grab;
+}
+.dishes .dishes_container .swiper .swiper-slide {
+  width: 25%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.dishes .dishes_container .swiper .swiper-slide img {
+  width: 100%;
+}
+.dishes .dishes_container .swiper .swiper-slide h3 {
+  margin: 30px 0 20px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.dishes .dishes_container .swiper .swiper-slide p {
+  margin-bottom: 20px;
+}
+.dishes .dishes_container .swiper .swiper-slide span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc33;
+}
+.dishes .dishes_container .swiper .arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+.dishes .dishes_container .swiper .arrows div {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.dishes .dishes_container .swiper .arrows div:hover {
+  color: #ffcc33;
+}
+
+#about {
+  padding: 100px 0;
+}
+#about .about_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+@media screen and (max-width: 1250px) {
+  #about .about_container {
+    width: 95%;
+  }
+}
+#about .about_container .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#about .about_container .left img {
+  width: 90%;
+}
+#about .about_container .left a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  font-size: 22px;
+  border-radius: 50%;
+  background-color: #ffcc33;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+#about .about_container .left a:hover {
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+#about .about_container .right {
+  width: 55%;
+}
+#about .about_container .right .title h2 {
+  padding: 0 0 0 90px;
+  text-align: left;
+}
+#about .about_container .right ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  margin-top: 60px;
+}
+#about .about_container .right ul li {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+}
+#about .about_container .right ul li h5 {
+  margin-top: 30px;
+}
+
+.offer {
+  padding: 100px 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.offer .offer_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1250px) {
+  .offer .offer_container {
+    width: 95%;
+  }
+}
+.offer .offer_container h2 {
+  width: 500px;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.offer .offer_container a {
+  display: inline-block;
+  height: 43px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border-radius: 4px;
+  background-color: #ffcc33;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+.offer .offer_container a:hover {
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+
+#chef {
+  padding: 100px 0;
+  background-color: #000000;
+}
+#chef .chef_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1250px) {
+  #chef .chef_container {
+    width: 95%;
+  }
+}
+#chef .chef_container .chef_content {
+  text-align: center;
+}
+#chef .chef_container .chef_content img {
+  width: 100%;
+}
+#chef .chef_container .chef_content h4 {
+  margin: 20px 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+#chef .chef_container .chef_content ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+#chef .chef_container .chef_content ul li a {
+  color: #ffcc33;
+  transition: color 0.3s ease;
+}
+#chef .chef_container .chef_content ul li a:hover {
+  color: #b8b8b8;
+}
+
+#menu {
+  padding: 100px 0;
+}
+#menu .menu_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1250px) {
+  #menu .menu_container {
+    width: 95%;
+  }
+}
+#menu .menu_container ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+#menu .menu_container ul li {
+  display: inline-block;
+  height: 43px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border-radius: 4px;
+  background-color: #ffcc33;
+  color: #000000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 0;
+  letter-spacing: 0;
+}
+#menu .menu_container ul li:hover {
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+#menu .menu_container ul .active {
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+#menu .menu_container .menu_content {
+  display: grid;
+  grid-template-columns: repeat(4, 0.25fr);
+  gap: 40px 24px;
+}
+#menu .menu_container .menu_content .product {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+#menu .menu_container .menu_content .product img {
+  width: 100%;
+}
+#menu .menu_container .menu_content .product h4 {
+  margin: 20px 0 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+#menu .menu_container .menu_content .product p {
+  margin-bottom: 20px;
+}
+#menu .menu_container .menu_content .product span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffcc33;
+}
+
+#gallery {
+  padding: 100px 0;
+  background-color: #000000;
+}
+#gallery .gallery_container {
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 0.33fr);
+  gap: 0;
+}
+@media screen and (max-width: 1250px) {
+  #gallery .gallery_container {
+    width: 95%;
+  }
+}
+#gallery .gallery_container a img {
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+#gallery .gallery_container a:hover img {
+  filter: brightness(0.5);
+}
+
+#reservation {
+  padding: 100px 0;
+}
+#reservation .reservation_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1250px) {
+  #reservation .reservation_container {
+    width: 95%;
+  }
+}
+#reservation .reservation_container form {
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  gap: 30px;
+  width: 60%;
+}
+#reservation .reservation_container form div {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+#reservation .reservation_container form div label {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffcc33;
+}
+#reservation .reservation_container form div input {
+  width: 100%;
+  height: 60px;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #000000;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+#reservation .reservation_container form div input:focus {
+  border-color: #ffcc33;
+}
+#reservation .reservation_container form button {
+  display: inline-block;
+  height: 43px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border-radius: 4px;
+  background-color: #ffcc33;
+  color: #000000;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+#reservation .reservation_container form button:hover {
+  background-color: #b8b8b8;
+  color: #ffffff;
+}
+#reservation .reservation_container .reservation_content {
+  width: 40%;
+  padding: 30px;
+  background-color: #000000;
+  color: #ffffff;
+}
+#reservation .reservation_container .reservation_content h2 {
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#reservation .reservation_container .reservation_content ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  margin: 30px 0;
+  padding-bottom: 4px;
+  font-family: "Halant", sans-serif;
+  border-bottom: solid 1px #b8b8b8;
+}
+
+#contact {
+  padding: 100px 0;
+  background-color: #000000;
+}
+#contact > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+@media screen and (max-width: 1250px) {
+  #contact > ul {
+    width: 95%;
+  }
+}
+#contact > ul li {
+  color: #ffffff;
+}
+#contact > ul li h4 {
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#contact > ul li h4 i {
+  color: #ffcc33;
+  margin-right: 15px;
+}
+#contact > ul li span {
+  font-family: "Halant", sans-serif;
+}
+#contact > ul li:nth-child(2) span {
+  color: #ffcc33;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+#contact > ul li ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+#contact > ul li ul li a {
+  font-size: 18px;
+  color: #ffcc33;
+  transition: color 0.3s ease;
+}
+#contact > ul li ul li a:hover {
+  color: #b8b8b8;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 0 20px 50px;
+  font-size: 12px;
+  font-family: "Halant", sans-serif;
+  text-align: center;
+  background-color: #000000;
+  color: #b8b8b8;
+}
+
+@media screen and (max-width: 601px) {
+  #about .about_container .right ul {
+    flex-direction: column;
+    gap: 50px;
+  }
+  #chef .chef_container {
+    gap: 60px;
+  }
+  #chef .chef_container .chef_content {
+    width: 100%;
+  }
+  #menu .menu_container .menu_content {
+    grid-template-columns: 1fr !important;
+  }
+  #gallery .gallery_container {
+    grid-template-columns: 1fr !important;
+  }
+  #reservation .reservation_container form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 771px) {
+  #home .home_container .home_content {
+    width: 100%;
+    text-align: center;
+  }
+  #home .home_container .home_content h1 {
+    font-size: 50px;
+  }
+  .title {
+    width: 95%;
+  }
+  .offer .offer_container h2 {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 991px) {
+  header .header_container nav {
+    position: fixed;
+    top: 0;
+    left: -1000px;
+    width: 280px;
+    height: 100vh;
+    padding: 30px;
+    background-color: #000000;
+    transition: left 0.3s ease;
+  }
+  header .header_container nav ul {
+    flex-direction: column;
+    align-items: start;
+    gap: 30px;
+  }
+  header .header_container nav span {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  header .header_container span {
+    display: block;
+    font-size: 30px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+  header .header_container .active_nav {
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease;
+  }
+  #about .about_container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  #about .about_container .left, #about .about_container .right {
+    width: 100%;
+  }
+  #about .about_container .left > img, #about .about_container .right > img {
+    width: 100%;
+  }
+  #chef .chef_container {
+    flex-wrap: wrap;
+  }
+  #menu .menu_container .menu_content {
+    grid-template-columns: repeat(2, 0.5fr);
+  }
+  #gallery .gallery_container {
+    grid-template-columns: repeat(2, 0.5fr);
+  }
+  #reservation .reservation_container {
+    flex-direction: column;
+  }
+  #reservation .reservation_container form, #reservation .reservation_container .reservation_content {
+    width: 100%;
+  }
+  #reservation .reservation_container button {
+    grid-column: span 2;
+  }
+}
+@media screen and (max-width: 1201px) {
+  #about .about_container .right .title {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */

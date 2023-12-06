@@ -1,0 +1,223 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestFood - Template</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'css/icon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header_container">
+            <img src={{ header.logo.url }} />
+            <nav>
+                <span><i onclick="menuFunc()" class="fa-solid fa-xmark"></i></span>
+                <ul>
+                    <li><a href="#home">{{ header.path1 }}</a></li>
+                    <li><a href="#about">{{ header.path2 }}</a></li>
+                    <li><a href="#chef">{{ header.path3 }}</a></li>
+                    <li><a href="#menu">{{ header.path4 }}</a></li>
+                    <li><a href="#gallery">{{ header.path5 }}</a></li>
+                    <li><a href="#contact">{{ header.path6 }}</a></li>
+                </ul>
+            </nav>
+            <span onclick="menuFunc()"><i class="fa-solid fa-bars"></i></span>
+        </div>
+    </header>
+    <section style="background-image: url({{ home.background.url }});" id="home">
+        <div class="home_container">
+            <div class="home_content">
+                <h1>{{ home.title }}</h1>
+                <p>{{ home.text }}</p>
+                <a href="#reservation">{{ home.button }}</a>
+            </div>
+        </div>
+    </section>
+    <section class="dishes">
+        <div class="title">
+            <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title1 }}</h2>
+            <p>{{ titles.text1 }}</p>
+        </div>
+        <div class="dishes_container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {% for i in products %}
+                        {% if i.special %}
+                            <div class="swiper-slide">
+                                <img src={{ i.img.url }} />
+                                <h3>{{ i.name }}</h3>
+                                <p>{{ i.text }} </p>
+                                <span>${{ i.price }}</span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="arrows">
+                    <div class="button-prev"><i class="fa-solid fa-arrow-left"></i></div>
+                    <div class="button-next"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ header.background.url }});" id="about">
+        <div class="about_container">
+            <div class="left">
+                <img src={{ about.img.url }} />
+                <a href={{ about.video_url }}><i class="fa-solid fa-play"></i></a>
+            </div>
+            <div class="right">
+                <div class="title">
+                    <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title2 }}</h2>
+                </div>
+                {% for i in about_content %}
+                    <p>{{ i.text }}</p>
+                    <br>
+                {% endfor %}
+                <ul>
+                    {% for i in about_content %}
+                        <li>
+                            <img src={{ i.img.url }} />
+                            <h5>{{ i.title }}</h5>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section style="background-image: url({{ offer.background.url }});" class="offer">
+        <div class="offer_container">
+            <h2>{{ offer.title }}</h2>
+            <a href="#reservation">{{ offer.button }}</a>
+        </div>
+    </section>
+    <section id="chef">
+        <div class="title">
+            <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title3 }}</h2>
+            <p>{{ titles.text3 }}</p>
+        </div>
+        <div class="chef_container">
+            {% for i in chefs %}
+                <div class="chef_content">
+                    <img src={{ i.img.url }} />
+                    <h4>{{ i.name }}</h4>
+                    <p>{{ i.position }}</p>
+                    <ul>
+                        <li><a href={{ i.social1 }}><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href={{ i.social2 }}><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href={{ i.social3 }}><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section style="background-image: url({{ header.background.url }});" id="menu">
+        <div class="title">
+            <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title4 }}</h2>
+        </div>
+        <div class="menu_container">
+            <ul>
+                <li data-menu="*" class="active" onclick="menuSort(event)">all</li>
+                {% for i in menu %}
+                    <li data-menu="{{ i.title }}" onclick="menuSort(event)">{{ i.title }}</li>
+                {% endfor %}
+            </ul>
+            <div class="menu_content">
+                {% for i in products %}
+                    <div data-menu="{{ i.category.title }}" class="product">
+                        <img src={{ i.img.url }} />
+                        <h4>{{ i.name }}</h4>
+                        <p>{{ i.text }}</p>
+                        <span>${{ i.price }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="gallery">
+        <div class="title">
+            <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title5 }}</h2>
+        </div>
+        <div class="gallery_container">
+            {% for i in gallery %}
+            <a href={{ i.img.url }} target="_blank"><img src={{ i.img.url }} /></a>
+            {% endfor %}
+        </div>
+    </section>
+    <section style="background-image: url({{ header.background.url }});" id="reservation">
+        <div class="title">
+            <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title6 }}</h2>
+        </div>
+        <div class="reservation_container">
+            <form method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="res_name">Name</label>
+                    <input name="res_name" placeholder="Name" required>
+                </div>
+                <div>
+                    <label for="res_lastname">Last Name</label>
+                    <input name="res_lastname" placeholder="Last Name" required>
+                </div>
+                <div>
+                    <label for="res_phone">Phone</label>
+                    <input name="res_phone" placeholder="Phone" required>
+                </div>
+                <div>
+                    <label for="res_email">Email</label>
+                    <input type="email" name="res_email" placeholder="Email" required>
+                </div>
+                <div>
+                    <label for="res_date">Date</label>
+                    <input type="date" name="res_date" placeholder="Date" required>
+                </div>
+                <div>
+                    <label for="res_time">Time</label>
+                    <input type="time" name="res_time" placeholder="Time" required>
+                </div>
+                <button>{{ reservation_content.button }}</button>
+            </form>
+            <div class="reservation_content">
+                <h2>{{ reservation_content.title }}s</h2>
+                <p>{{ reservation_content.text }}</p>
+                <ul>
+                    {% for i in open_days %}
+                        <li>
+                            <span>{{ i.day }}</span>
+                            <span>{{ i.time }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="title">
+            <h2 style="background-image: url({{ titles.img.url }});">{{ titles.title7 }}</h2>
+        </div>
+        <ul>
+            {% for i in contact_content %}
+            <li>
+                <h4><i class="{{ i.icon }}"></i> {{ i.title }}</h4>
+                <span>{{ i.info }}</span>
+            </li>
+            {% endfor %}
+            <li>
+                <ul>
+                    <li><a href={{ contact_info.social1 }}><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href={{ contact_info.social2 }}><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href={{ contact_info.social3 }}><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href={{ contact_info.social4 }}><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </li>
+        </ul>
+        <iframe src="{{ contact_info.google_map }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <footer>Copyright © All rights reserved. Terms of use and Privacy Policy.</footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
